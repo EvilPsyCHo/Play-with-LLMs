@@ -1,2 +1,39 @@
-# train_custom_LLM
-Train your custom LLMs like Llama, baichuan-7b, GPT
+# Train Custom LLM
+
+探索更好的大型语言模型训练姿势
+
+
+# 模型运行
+
+直接加载基座模型启动
+
+```shell
+CUDA_VISIBLE_DEVICES=0 python.py webui.py --model {模型类型如 baichuan, chatGLM} --model_ckpt {模型权重文件路径}
+```
+
+添加lora权重，使用量化方法运行
+
+```shell
+CUDA_VISIBLE_DEVICES=0 python.py webui.py --model {模型类型如 baichuan, chatGLM} --model_ckpt {模型权重文件路径} --lora_ckpt {lora权重文件路径} --quantize {4bit, 8bit}
+```
+
+![](./image/webui.png)
+
+# 支持模型类型
+
+- [x] chatGLM系列
+- [x] baichuan系列
+
+# Dataset
+
+- https://github.com/LianjiaTech/BELLE
+
+
+# Reference
+- https://github.com/beyondguo/LLM-Tuning/tree/master
+- https://github.com/hiyouga/LLaMA-Efficient-Tuning
+- https://github.com/yangjianxin1/Firefly/tree/master
+- https://github.com/gradio-app/gradio
+- https://github.com/imClumsyPanda/langchain-ChatGLM/tree/master
+
+
