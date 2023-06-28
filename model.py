@@ -18,6 +18,7 @@ def load_quantize_llm(model, model_ckpt, quantize='4bit', local_rank=None):
         device_map = {'': int(local_rank)}
         print(f"local rank {local_rank} map to {local_rank}")
     if quantize == '4bit':
+        print("load model with 4bit quantization")
         model = AutoLoad.from_pretrained(
             model_ckpt,
             device_map=device_map,
@@ -34,6 +35,7 @@ def load_quantize_llm(model, model_ckpt, quantize='4bit', local_rank=None):
             ),
         )
     elif quantize == '8bit':
+        print("load model with 8bit quantization")
         model = AutoLoad.from_pretrained(
             model_ckpt,
             device_map=device_map,
@@ -42,6 +44,7 @@ def load_quantize_llm(model, model_ckpt, quantize='4bit', local_rank=None):
             trust_remote_code=True,
         )
     else:
+        print("load model with fp16")
         model = AutoLoad.from_pretrained(
             model_ckpt,
             device_map=device_map,
