@@ -1,6 +1,9 @@
 # Train Custom LLM
 
-探索更好的大型语言模型训练姿势
+探索LLM更多有趣的玩法
+
+
+# 微调方式
 
 
 # 模型运行
@@ -21,8 +24,8 @@ CUDA_VISIBLE_DEVICES=0 python.py webui.py --model {模型类型如 baichuan, cha
 
 # 支持模型类型
 
-- [x] chatGLM系列
-- [x] baichuan系列
+- [x] chatGLM1/2
+- [ ] baichuan-7B
 
 # Dataset
 
