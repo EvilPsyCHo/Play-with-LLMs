@@ -2,11 +2,20 @@
 
 探索LLM更多有趣的玩法
 
+## 环境
 
-# 微调方式
+```text
+# peft, bitsandbytes拉github repo最新的分支安装
+peft==0.4.0.dev0
+torch==2.0.0
+transformers==4.30.2
+bitsandbytes==0.39.1
+```
+
+## 微调方式
 
 
-# 模型运行
+## 模型运行
 
 直接加载基座模型启动
 
@@ -22,17 +31,17 @@ CUDA_VISIBLE_DEVICES=0 python.py webui.py --model {模型类型如 baichuan, cha
 
 ![](./image/webui.png)
 
-# 支持模型类型
+## 支持模型类型
 
 - [x] chatGLM1/2
 - [ ] baichuan-7B
 
-# Dataset
+## Dataset
 
 - https://github.com/LianjiaTech/BELLE
 
 
-# Reference
+## Reference
 - https://github.com/beyondguo/LLM-Tuning/tree/master
 - https://github.com/hiyouga/LLaMA-Efficient-Tuning
 - https://github.com/yangjianxin1/Firefly/tree/master
