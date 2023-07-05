@@ -4,7 +4,8 @@ from transformers import AutoModel, AutoTokenizer
 import gradio as gr
 import mdtex2html
 
-from model import load_quantize_llm
+from model import load_model
+from transformers import  GenerationConfig
 # from utils import load_model_on_gpus
 
 
@@ -53,7 +54,7 @@ def parse_text(text):
     return text
 
 
-def predict(input, chatbot, max_length, top_p, temperature, history, past_key_values):
+def stream_predict(input, chatbot, max_length, top_p, temperature, history, past_key_values):
     chatbot.append((parse_text(input), ""))
     if len(history) > 2 * MAX_TURNS:
         history = history[-MAX_TURNS:]
@@ -64,6 +65,24 @@ def predict(input, chatbot, max_length, top_p, temperature, history, past_key_va
         chatbot[-1] = (parse_text(input), parse_text(response))
 
         yield chatbot, history, past_key_values
+
+
+def predict(input_text, chatbot, max_length, top_p, temperature, history, past_key_values):
+    chatbot.append((parse_text(input_text), ""))
+    prompt = "Human: " + input_text + "\n\nAssistant: "
+    inputs = tokenizer(prompt, return_tensors="pt").to(model.device)
+    generation_config = GenerationConfig(
+        temperature=temperature,
+        top_p=top_p,
+        do_sample=True,
+        repetition_penalty=2.0,
+        max_new_tokens=max_length,  # max_length=max_new_tokens+input_sequence
+
+    )
+    generate_ids = model.generate(**inputs, generation_config=generation_config)
+    output = tokenizer.decode(generate_ids[0][len(inputs.input_ids[0]):])
+    chatbot[-1] = (parse_text(input_text), parse_text(output))
+    return chatbot, None, None
 
 
 def reset_user_input():
@@ -77,11 +96,11 @@ def reset_state():
 def parse_arg():
     import argparse
     parser = argparse.ArgumentParser()
-    parser.add_argument("--model", help="Model name optional [baichuan, chatGLM]")
-    parser.add_argument("--model_ckpt", help="model checkpoint folder")
-    parser.add_argument("--lora_ckpt", default=None, help="lora checkpoint folder")
+    parser.add_argument("--model_name", help="Model name optional [baichuan, chatGLM]")
+    parser.add_argument("--model_path", help="model checkpoint folder")
+    parser.add_argument("--lora_path", default=None, help="lora checkpoint folder")
     parser.add_argument("--max_turns", default=20, help="max multi-rounds chat turns")
-    parser.add_argument("--quantize", default=None, help="quantization config optional [None, int4, int8]")
+    parser.add_argument("--quantize", default='4bit', help="quantization config optional [None, 4bit, 8bit]")
     args = parser.parse_args()
     return args
 
@@ -89,10 +108,15 @@ def parse_arg():
 if __name__ == "__main__":
     args = parse_arg()
     MAX_TURNS = args.max_turns  # int参数无法传入，在外部全局定义
-    name = args.model + (" lora" if args.lora_ckpt else "") + (f" quantize {args.quantize}" if args.quantize else "")
-    model, tokenizer = load_quantize_llm(args.model, args.model_ckpt, args.quantize, torch.cuda.current_device())
+    name = args.model_name + (" lora" if args.lora_path else "") + (f" quantize {args.quantize}" if args.quantize else "")
+    model, tokenizer = load_model(args.model_name, args.model_path, args.quantize, torch.cuda.current_device())
+    if args.lora_path:
+        print("load lora weight")
+        from peft import PeftModel
+        model = PeftModel.from_pretrained(model, args.lora_path)
     model = model.eval()
 
+    gr.Chatbot.postprocess = postprocess
     with gr.Blocks() as demo:
         gr.HTML(f"""<h1 align="center">{name}</h1>""")
         chatbot = gr.Chatbot(scale=8)
@@ -111,12 +135,16 @@ if __name__ == "__main__":
 
         history = gr.State([])
         past_key_values = gr.State(None)
-
-        submitBtn.click(predict, [user_input, chatbot, max_length, top_p, temperature, history, past_key_values],
-                        [chatbot, history, past_key_values], show_progress=True)
+        if "chatglm" in args.model_name:
+            submitBtn.click(stream_predict, [user_input, chatbot, max_length, top_p, temperature, history, past_key_values],
+                            [chatbot, history, past_key_values], show_progress=True)
+        elif "baichuan" in args.model_name:
+            submitBtn.click(predict,
+                            [user_input, chatbot, max_length, top_p, temperature, history, past_key_values],
+                            [chatbot, history, past_key_values], show_progress=True)
         submitBtn.click(reset_user_input, [], [user_input])
 
         emptyBtn.click(reset_state, outputs=[chatbot, history, past_key_values], show_progress=True)
-
-    gr.Chatbot.postprocess = postprocess
     demo.queue().launch(share=True, inbrowser=True)
+
+# CUDA_VISIBLE_DEVICES=0 python.py webui.py --model baichuan --model_ckpt  --lora_ckpt  --quantize 4bit
