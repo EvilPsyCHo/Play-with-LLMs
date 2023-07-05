@@ -1,6 +1,10 @@
 # Train Custom LLM
 
-探索LLM更多有趣的玩法
+
+
+**探索LLM更多有趣的玩法, 祝大家玩的愉快! 更详细的LLM视频更新在我的视频媒体上,欢迎订阅.**
+- b站频道: https://space.bilibili.com/1751715710/channel/collectiondetail?sid=1485775
+- youtube: https://www.youtube.com/channel/UCxu8MUtWtqfdDB2eTABSePg
 
 ## 环境
 
