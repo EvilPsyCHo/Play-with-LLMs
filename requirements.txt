@@ -1,0 +1,5 @@
+peft==0.4.0.dev0
+torch>=2.0.0
+transformers>=4.30.2
+accelerate==0.21.0.dev0
+bitsandbytes==0.39.1
