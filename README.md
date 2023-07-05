@@ -56,6 +56,16 @@ tensorboard --logdir {output_dir}/runs
 
 ![](./image/valid_loss.png)
 
+5. 使用20K数据效果对比
+
+**原始模型**
+
+![](./image/baichuan.png)
+
+**微调模型**
+
+![](./image/baichuan-20k-finetune.png)
+
 
 ## 模型运行
 
