@@ -72,13 +72,13 @@ tensorboard --logdir {output_dir}/runs
 直接加载基座模型启动
 
 ```shell
-CUDA_VISIBLE_DEVICES=0 python.py webui.py --model {模型类型如 baichuan, chatGLM} --model_ckpt {模型权重文件路径}
+CUDA_VISIBLE_DEVICES=0 python webui.py --model_name {模型类型如 baichuan, chatGLM} --model_path {模型权重文件路径}
 ```
 
 添加lora权重，使用量化方法运行
 
 ```shell
-CUDA_VISIBLE_DEVICES=0 python.py webui.py --model {模型类型如 baichuan, chatGLM} --model_ckpt {模型权重文件路径} --lora_ckpt {lora权重文件路径} --quantize {4bit, 8bit}
+CUDA_VISIBLE_DEVICES=0 python webui.py --model_name {模型类型如 baichuan, chatGLM} --model_path {模型权重文件路径} --lora_path {lora权重文件路径} --quantize {4bit, 8bit}
 ```
 
 ![](./image/webui.png)
