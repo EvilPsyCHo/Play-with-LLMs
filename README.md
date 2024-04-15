@@ -7,3 +7,4 @@ Play with LLMs
 
 - [角色扮演](./roleplay/README.md)
 - [qlora-finetune-Baichuan-7B](./finetune-qlora-baichuan/)
+- [控制LLM格式化输出](./examples/control_llms_output_structure.ipynb)
