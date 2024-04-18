@@ -8,7 +8,8 @@
 ### 🚀上手即用｜ I code this so you don't have to!
 - [搭配Llamacpp grammar, Mistral稳定输出Json Format](./examples/mistral-stable-output-JSON-format.ipynb)
 - [Think step by steps, Mistral CoT Agent](./examples/mistral-CoT-Agent.ipynb)
-- [Mistral with function call](./examples/mistral-function-call.ipynb)
+- [Mistral ReAct Agent with tool call](./examples/mistral-ReAct-Agent-with-tool-call.ipynb)
+![](./assets/simple-react.gif)
 
 ### 🐬深入LLMs | Pretraining, Fine-tuning, RLHF and ?>
 
