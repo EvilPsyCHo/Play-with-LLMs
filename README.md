@@ -9,8 +9,12 @@
 - [搭配Llamacpp grammar, Mistral稳定输出Json Format](./examples/mistral-stable-output-JSON-format.ipynb)
 - [Think step by steps, Mistral CoT Agent](./examples/mistral-CoT-Agent.ipynb)
 - [Mistral ReAct Agent with tool call](./examples/mistral-ReAct-Agent-with-tool-call.ipynb)
-![](./assets/simple-react.gif)
+<div align=center>
+<img src="./assets/simple-react.gif" width=60%/>
+</div>
+
 
 ### 🐬深入LLMs | Pretraining, Fine-tuning, RLHF and ?>
 
 - [qlora-finetune-Baichuan-7B](./finetune-qlora-baichuan/)
+
