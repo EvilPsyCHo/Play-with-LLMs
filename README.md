@@ -10,11 +10,11 @@
 - [Mistral-8x7b-Instruct CoT Agent, Think step by steps](./examples/mistral-CoT-Agent.ipynb)
 - [Mistral-8x7b-Instruct ReAct Agent with tool call](./examples/mistral-ReAct-Agent-with-function-tool-call.ipynb)
 - [Llama3-8b-Instruct, transformers, vLLM and Llamacpp多种方法调戏](./examples/llama3-8b-Instruct-transformers-vllm-llamacpp.ipynb)
-- [Llama3-8b-Instruct, CoT with vLLM]()
+- [Llama3-8b-Instruct, CoT with vLLM](./examples/llama3-8b-Instruct-CoT-Agent-vllm.ipynb)
 
 ### 🐬深入LLMs | Pretraining, Fine-tuning, RLHF and ?>
 
-- [qlora-finetune-Baichuan-7B](./finetune-qlora-baichuan/)
+- [qlora-finetune-Baichuan-7B](./finetune-qlora-baichuan/README.md)
 
 ### 案例展示
 
