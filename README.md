@@ -9,7 +9,7 @@
 - [搭配Llamacpp grammar, Mistral稳定输出Json Format](./examples/mistral-stable-output-JSON-format.ipynb)
 - [Think step by steps, Mistral CoT Agent](./examples/mistral-CoT-Agent.ipynb)
 - [Mistral ReAct Agent with tool call](./examples/mistral-ReAct-Agent-with-function-tool-call.ipynb)
-- [多种方法调戏Llama-3-8B-Instruct](./examples/various-ways-to-play-with-llama3.ipynb)
+- [多种方法调戏Llama-3-8B-Instruct, transformers, vLLM and Llamacpp](./examples/various-ways-to-play-with-llama3.ipynb)
 
 ### 🐬深入LLMs | Pretraining, Fine-tuning, RLHF and ?>
 
