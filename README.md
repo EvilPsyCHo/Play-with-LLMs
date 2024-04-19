@@ -6,10 +6,10 @@
 分享如何训练、评估大型语言模型，基于RAG、Agent、Chain构建有趣的LLMs应用。
 
 ### 🚀上手即用｜ I code this so you don't have to!
-- [搭配Llamacpp grammar, Mistral稳定输出Json Format](./examples/mistral-stable-output-JSON-format.ipynb)
-- [Think step by steps, Mistral CoT Agent](./examples/mistral-CoT-Agent.ipynb)
-- [Mistral ReAct Agent with tool call](./examples/mistral-ReAct-Agent-with-function-tool-call.ipynb)
-- [多种方法调戏Llama3-8b-Instruct, transformers, vLLM and Llamacpp](./examples/llama3-8b-Instruct-transformers-vllm-llamacpp.ipynb)
+- [Mistral-8x7b-Instruct 稳定输出Json Format, 搭配Llamacpp grammar](./examples/mistral-stable-output-JSON-format.ipynb)
+- [Mistral-8x7b-Instruct CoT Agent, Think step by steps](./examples/mistral-CoT-Agent.ipynb)
+- [Mistral-8x7b-Instruct ReAct Agent with tool call](./examples/mistral-ReAct-Agent-with-function-tool-call.ipynb)
+- [Llama3-8b-Instruct, transformers, vLLM and Llamacpp多种方法调戏](./examples/llama3-8b-Instruct-transformers-vllm-llamacpp.ipynb)
 - [Llama3-8b-Instruct, CoT with vLLM]()
 
 ### 🐬深入LLMs | Pretraining, Fine-tuning, RLHF and ?>
