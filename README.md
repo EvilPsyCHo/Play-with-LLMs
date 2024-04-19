@@ -11,6 +11,7 @@
 - [Mistral-8x7b-Instruct ReAct Agent with tool call](./examples/mistral-ReAct-Agent-with-function-tool-call.ipynb)
 - [Llama3-8b-Instruct, transformers, vLLM and Llamacpp多种方法调戏](./examples/llama3-8b-Instruct-transformers-vllm-llamacpp.ipynb)
 - [Llama3-8b-Instruct, CoT with vLLM](./examples/llama3-8b-Instruct-CoT-Agent-vllm.ipynb)
+- [Llama3-8b-Instruct, 纯中文实现ReAct with tool call](./examples/llama3-8b-Instruct-CoT-Agent-vllm.ipynb)
 
 ### 🐬深入LLMs | Pretraining, Fine-tuning, RLHF and ?>
 
@@ -18,7 +19,6 @@
 
 ### 案例展示
 
-<div align=center>
-<img src="./assets/simple-react.gif" width=60%/>
-</div>
-
+Mixtral 8x7b ReAct           |  Llama3-8b ReAct
+:-------------------------:|:-------------------------:
+![](./assets/simple-react.gif)  |  ![](./assets/llama3_simple_react.gif)
