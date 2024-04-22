@@ -12,6 +12,7 @@
 - [Llama3-8b-Instruct, transformers, vLLM and Llamacpp多种方法调戏](./examples/llama3-8b-Instruct-transformers-vllm-llamacpp.ipynb)
 - [Llama3-8b-Instruct, CoT with vLLM](./examples/llama3-8b-Instruct-CoT-Agent-vllm.ipynb)
 - [Llama3-8b-Instruct, 纯中文实现ReAct with tool call](./examples/llama3-8b-Instruct-CoT-Agent-vllm.ipynb)
+- [Chinese-Llama3-8b, DPO微调让Llama3更愿意说中文](./examples/chinese-llama3-8b.ipynb)
 
 ### 🐬深入LLMs | Pretraining, Fine-tuning, RLHF and ?>
 
