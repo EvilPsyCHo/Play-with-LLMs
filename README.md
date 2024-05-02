@@ -14,6 +14,7 @@
 - [Llama3-8b-Instruct, 纯中文实现ReAct with tool call](./examples/llama3-8b-Instruct-CoT-Agent-vllm.ipynb)
 - [Chinese-Llama3-8b, DPO微调让Llama3更愿意说中文](./examples/chinese-llama3-8b.ipynb)
 - [llama-cpp-convert-GGUF, 模型量化转化为GGUF格式并上传huggingface](./examples/llama-cpp-convert-GGUF.ipynb)
+- [Advanced ReAct](./examples/llama3-8b-Instruct-ReAct-Agent-advanced.ipynb)
 
 ### 🐬深入LLMs | Pretraining, Fine-tuning, RLHF and ?>
 
